@@ -1,0 +1,128 @@
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content p-4">
+    <div class="leave-container">
+    
+      <div class="header">
+        <div>
+          <h2>Leave Management</h2>
+          <p class="subtitle">Apply for leave and manage approvals</p>
+        </div>
+        <button class="btn-apply" (click)="toggleForm()">+ Apply Leave</button>
+      </div>
+
+      
+      <div class="card" *ngIf="showForm">
+        <h3>Apply for Leave</h3>
+        <form [formGroup]="leaveForm" (ngSubmit)="submitLeave()">
+          <div class="form-grid">
+            <div>
+              <label>Leave Type</label>
+              <select formControlName="leaveType">
+                <option value="Sick Leave">Sick Leave</option>
+                <option value="Casual Leave">Casual Leave</option>
+                <option value="Maternity Leave">Maternity Leave</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label>Days Requested</label>
+              <input type="number" formControlName="daysRequested" readonly />
+              <div class="error" *ngIf="leaveForm.hasError('daysMismatch') && leaveForm.touched">
+                Days requested must match the difference between dates.
+              </div>
+            </div>
+
+            <div>
+              <label>Start Date</label>
+              <input type="date" formControlName="startDate" [min]="todayStr" (change)="onDateChange()" />
+            </div>
+
+            <div>
+              <label>End Date</label>
+              <input type="date" formControlName="endDate" [min]="leaveForm.value.startDate || todayStr" (change)="onDateChange()" />
+              <div class="error" *ngIf="leaveForm.hasError('invalidRange') && leaveForm.touched">
+                End date must be same or after start date.
+              </div>
+            </div>
+
+            <div class="full-width">
+              <label>Reason</label>
+              <textarea rows="3" formControlName="reason" placeholder="Please provide a reason..."></textarea>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
+            <button type="submit" class="btn-submit" [disabled]="leaveForm.invalid">Submit Leave Request</button>
+          </div>
+        </form>
+      </div>
+
+      
+      <div class="tabs">
+        <button [class.active]="activeTab === 'requests'" (click)="setActiveTab('requests')">My Leave Requests</button>
+        <button [class.active]="activeTab === 'approved'" (click)="setActiveTab('approved')">Approved Leaves</button>
+        <button [class.active]="activeTab === 'rejected'" (click)="setActiveTab('rejected')">Rejected Leaves</button>
+      </div>
+
+      
+      <div class="requests-section" *ngIf="activeTab === 'requests'">
+        <h4>My Leave Requests</h4>
+        <div *ngIf="leaveRequests.length === 0">No leave requests yet.</div>
+        <table *ngIf="leaveRequests.length > 0">
+          <thead>
+            <tr>
+              <th>Leave Type</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Days</th>
+              <th>Reason</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let leave of leaveRequests">
+              <td>{{ leave.leaveType }}</td>
+              <td>{{ leave.startDate }}</td>
+              <td>{{ leave.endDate }}</td>
+              <td>{{ leave.daysRequested }}</td>
+              <td>{{ leave.reason }}</td>
+              <td>
+                <span [ngClass]="{
+                  'approved': leave.status === 'Approved',
+                  'rejected': leave.status === 'Rejected',
+                  'pending': leave.status === 'Pending'
+                }">{{ leave.status }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      
+      <div class="requests-section" *ngIf="activeTab === 'approved'">
+        <h4>Approved Leaves</h4>
+        <div *ngIf="approvedLeaves.length === 0">No approved leaves yet.</div>
+        <ul *ngIf="approvedLeaves.length > 0">
+          <li *ngFor="let leave of approvedLeaves">
+            {{ leave.leaveType }} ({{ leave.startDate }} to {{ leave.endDate }})
+          </li>
+        </ul>
+      </div>
+
+      
+      <div class="requests-section" *ngIf="activeTab === 'rejected'">
+        <h4>Rejected Leaves</h4>
+        <div *ngIf="rejectedLeaves.length === 0">No rejected leaves yet.</div>
+        <ul *ngIf="rejectedLeaves.length > 0">
+          <li *ngFor="let leave of rejectedLeaves">
+            {{ leave.leaveType }} ({{ leave.startDate }} to {{ leave.endDate }})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

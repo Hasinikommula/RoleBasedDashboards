@@ -1,0 +1,23 @@
+
+
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+     <div class="training-container">
+  <h2>Training & Resources</h2>
+  <p>Access training materials and company documents</p>
+  <input type="text" placeholder="Search for training materials..." (input)="filterMaterials($event)">
+  <div class="cards">
+    <div class="card" *ngFor="let material of filteredMaterials">
+      <h3>{{ material.title }}</h3>
+      <span class="category" [ngClass]="material.category">{{ material.category }}</span>
+      <p>{{ material.description }}</p>
+      <div class="button-container">
+        <button (click)="download(material)">Download</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

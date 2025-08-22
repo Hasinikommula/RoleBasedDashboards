@@ -1,0 +1,82 @@
+<div class="section-content">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>My Goals</h2>
+    <button class="btn btn-primary" (click)="openAddGoalModal()">
+      <i class="bi bi-plus-circle"></i> Add Goal
+    </button>
+  </div>
+  <p class="text-muted mb-4">Your objectives for this performance cycle.</p>
+  
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let goal of goals">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ goal.title }}</h5>
+          <p class="card-text">{{ goal.description }}</p>
+          <div class="progress mb-3">
+            <div class="progress-bar" 
+                 [ngClass]="getStatusClass(goal.status)" 
+                 role="progressbar" 
+                 [style.width]="goal.progress + '%'" 
+                 [attr.aria-valuenow]="goal.progress" 
+                 aria-valuemin="0" 
+                 aria-valuemax="100"></div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="badge" [ngClass]="getStatusClass(goal.status)">{{ goal.status }}</span>
+            <small class="text-muted">{{ goal.progress }}% complete</small>
+          </div>
+        </div>
+        <div class="card-footer bg-transparent">
+          <button class="btn btn-sm btn-outline-primary me-1">Update</button>
+          <button class="btn btn-sm btn-outline-secondary">Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Goal Modal (Simplified) -->
+  <div class="modal fade" [class.show]="showAddModal" [style.display]="showAddModal ? 'block' : 'none'">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add New Goal</h5>
+          <button type="button" class="btn-close" (click)="closeAddGoalModal()"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="goalTitle" class="form-label">Goal Title</label>
+            <input type="text" class="form-control" id="goalTitle" [(ngModel)]="newGoal.title" required>
+          </div>
+          <div class="mb-3">
+            <label for="goalDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="goalDescription" rows="3" [(ngModel)]="newGoal.description" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="goalProgress" class="form-label">Progress (%)</label>
+            <input type="number" class="form-control" id="goalProgress" [(ngModel)]="newGoal.progress" min="0" max="100">
+          </div>
+          <div class="mb-3">
+            <label for="goalStatus" class="form-label">Status</label>
+            <select class="form-select" id="goalStatus" [(ngModel)]="newGoal.status">
+              <option value="On Track">On Track</option>
+              <option value="Achieved">Achieved</option>
+              <option value="At Risk">At Risk</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeAddGoalModal()">Cancel</button>
+          <button type="button" class="btn btn-primary" (click)="addGoal()">Save Goal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-backdrop fade" [class.show]="showAddModal" [style.display]="showAddModal ? 'block' : 'none'"></div>
+</div>

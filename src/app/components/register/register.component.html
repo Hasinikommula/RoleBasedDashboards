@@ -1,0 +1,131 @@
+<div class="register-container">
+  <div class="register-card">
+    <h2 class="title">Create an Account</h2>
+
+    <!-- Success Message -->
+    <div *ngIf="successMessage" class="alert success">
+      {{ successMessage }}
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert error">
+      {{ errorMessage }}
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+      <!-- Username -->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          id="username"
+          type="text"
+          formControlName="username"
+          placeholder="Enter your username"
+        />
+        <div class="error" *ngIf="registerForm.get('username')?.touched && registerForm.get('username')?.invalid">
+          <small *ngIf="registerForm.get('username')?.hasError('required')">
+            Username is required
+          </small>
+          <small *ngIf="registerForm.get('username')?.hasError('maxlength')">
+            Maximum 50 characters allowed
+          </small>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+        />
+        <div class="error" *ngIf="registerForm.get('email')?.touched && registerForm.get('email')?.invalid">
+          <small *ngIf="registerForm.get('email')?.hasError('required')">
+            Email is required
+          </small>
+          <small *ngIf="registerForm.get('email')?.hasError('email')">
+            Enter a valid email
+          </small>
+        </div>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          id="phoneNumber"
+          type="text"
+          formControlName="phoneNumber"
+          placeholder="Enter your phone number"
+        />
+        <div class="error" *ngIf="registerForm.get('phoneNumber')?.touched && registerForm.get('phoneNumber')?.invalid">
+          <small *ngIf="registerForm.get('phoneNumber')?.hasError('required')">
+            Phone number is required
+          </small>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Enter your password"
+        />
+        <div class="error" *ngIf="registerForm.get('password')?.touched && registerForm.get('password')?.invalid">
+          <small *ngIf="registerForm.get('password')?.hasError('required')">
+            Password is required
+          </small>
+          <small *ngIf="registerForm.get('password')?.hasError('minlength')">
+            Minimum 6 characters required
+          </small>
+        </div>
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          id="confirmPassword"
+          type="password"
+          formControlName="confirmPassword"
+          placeholder="Confirm your password"
+        />
+        <div class="error" *ngIf="registerForm.get('confirmPassword')?.touched && registerForm.hasError('mismatch')">
+          <small>Passwords do not match</small>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="role">Role</label>
+        <select id="role" formControlName="role">
+          <option value="">Select your role</option>
+          <option value="employee">Employee</option>
+          <option value="hr">HR</option>
+        </select>
+      </div>
+
+      <div class="error" *ngIf="registerForm.get('role')?.touched && registerForm.hasError('mismatch')">
+        <small>Passwords do not match</small>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="btn-submit" [disabled]="isLoading">
+        {{ isLoading ? 'Registering...' : 'Register' }}
+      </button>
+    </form>
+
+    <!-- Link to login -->
+    <p class="redirect">
+      Already have an account?
+      <a routerLink="/login">Login here</a>
+    </p>
+  </div>
+</div>
+
+    

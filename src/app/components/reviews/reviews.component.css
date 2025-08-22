@@ -1,0 +1,38 @@
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  font-size: 0.85em;
+}
+
+.text-muted {
+  font-size: 0.85rem;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}

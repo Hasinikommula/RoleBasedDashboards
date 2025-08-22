@@ -1,0 +1,157 @@
+<div class="container">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="logo">HRDashboard</div>
+    <nav class="sidebar-nav">
+      <app-sidebar></app-sidebar>
+    </nav>
+  </div> 
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="welcome-card">
+      <div class="card-left">
+        <div class="avatar">H</div>
+        <div class="user-info">
+          <h2>Welcome back, {{ userName }}!</h2>
+          <p>{{ userRole }} • {{ userDepartment }}</p>
+          <div class="datetime">
+            <span><i class="fa-regular fa-calendar"></i> {{ currentDate }}</span>
+            <span><i class="fa-regular fa-clock"></i> {{ currentTime }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-right">
+        <div class="employee-id">
+          <!-- 🔔 Notifications -->
+          <div class="notification-wrapper position-relative" (click)="toggleNotifications()">
+            <i class="bi bi-bell-fill notification-icon"></i>
+            <span *ngIf="notificationCount > 0" class="notification-badge">
+              {{ notificationCount }}
+            </span>
+
+            <!-- Dropdown -->
+            <div class="notification-dropdown shadow" *ngIf="showDropdown">
+              <div *ngIf="notifications.length > 0; else noNotifications">
+                <div class="notification-item" *ngFor="let n of notifications">
+                  <p class="mb-0">{{ n.message }}</p>
+                  <small class="text-muted">{{ n.createdAt | date:'short' }}</small>
+                </div>
+              </div>
+              <ng-template #noNotifications>
+                <div class="notification-item text-muted">
+                  No new notifications
+                </div>
+              </ng-template>
+            </div>
+          </div>
+
+          <div>
+            <p>Employee ID</p>
+            <h4>{{ employeeId }}</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="card-align">
+      <!-- Leave Balance -->
+      <div class="leave-card shadow-sm rounded">
+        <div class="leave-header d-flex align-items-center mb-3">
+          <i class="bi bi-calendar2-week-fill text-primary fs-5 me-2"></i>
+          <h5 class="mb-0 leave-header">Leave Balance</h5>
+        </div>
+
+        <div *ngFor="let leave of leaveBalance" class="leave-type mb-3">
+          <div class="d-flex justify-content-between small">
+            <span>{{ leave.type }}</span>
+            <span class="fw-semibold text-dark">{{ leave.remaining }} left</span>
+          </div>
+          <div class="progress small my-1">
+            <div
+              class="progress-bar bg-dark"
+              role="progressbar"
+              [style.width.%]="(leave.used / leave.total) * 100"
+            ></div>
+          </div>
+          <div class="text-muted small">{{ leave.used }}/{{ leave.total }} days used</div>
+        </div>
+      </div>
+
+      <!-- Attendance -->
+      <div class="attendance-card shadow-sm rounded">
+        <div class="attendance-header d-flex align-items-center mb-3">
+          <i class="bi bi-clock-history text-success fs-5 me-2"></i>
+          <h5 class="mb-0 attendance-header">Attendance Rate</h5>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <span class="text-muted small">This Month</span>
+          <span class="fw-bold text-dark fs-6">{{ attendanceData }}%</span>
+        </div>
+
+        <div class="progress small my-2">
+          <div
+            class="progress-bar bg-dark"
+            role="progressbar"
+            [style.width.%]="attendanceData"
+          ></div>
+        </div>
+
+        <div class="d-flex justify-content-between text-muted small mt-2">
+          <span>{{ presentDays }} days present</span>
+          <span>{{ absentDays }} days absent</span>
+        </div>
+      </div>
+
+      <!-- Holidays -->
+      <div class="holiday-card">
+        <div class="holiday-header">
+          <i class="fas fa-gift icon"></i>
+          <h3>Upcoming Holidays</h3>
+        </div>
+
+        <div class="holiday-list">
+          <div class="holiday-item" *ngFor="let holiday of upcomingHolidays">
+            <span>{{ holiday.name }}</span>
+            <span class="holiday-date">{{ holiday.date }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payslip -->
+      <div class="dashboard-card payslip-status-card" *ngIf="payslip">
+        <div class="card-header">
+          <i class="fa-solid fa-file-invoice-dollar card-icon purple"></i>
+          <h3>Payslip Status</h3>
+        </div>
+
+        <p class="month-text">{{ payslip.month }}</p>
+
+        <span
+          class="status-badge"
+          [ngClass]="{
+            available: payslip.status === 'Available',
+            unavailable: payslip.status !== 'Available'
+          }"
+        >
+          {{ payslip.status === 'Available' ? '✔ Available' : '✘ Not Available' }}
+        </span>
+
+        <button class="download-btn" [disabled]="payslip.status !== 'Available'">
+          <i class="fa-solid fa-download"></i>
+          <span>Download Payslip</span>
+        </button>
+
+        <p class="net-salary">Net Salary: {{ payslip.salary }}</p>
+      </div>
+    </div>
+   
+    <!-- Attendance Component -->
+    <div>
+      <app-attendance></app-attendance>
+    </div>
+  </div>
+</div>

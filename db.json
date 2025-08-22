@@ -1,0 +1,629 @@
+{
+  "leaveBalance": [
+    {
+      "type": "Casual Leave",
+      "used": 3,
+      "total": 12,
+      "id": "24c2"
+    },
+    {
+      "type": "Sick Leave",
+      "used": 1,
+      "total": 10,
+      "id": "5ef8"
+    },
+    {
+      "type": "Earned Leave",
+      "used": 5,
+      "total": 20,
+      "id": "5803"
+    }
+  ],
+  "dashboard": {
+    "attendanceRate": 92,
+    "presentDays": 22,
+    "absentDays": 2
+  },
+  "upcomingHolidays": [
+    {
+      "name": "Republic Day",
+      "date": "Jan 26",
+      "id": "66d9"
+    },
+    {
+      "name": "Holi",
+      "date": "Mar 13",
+      "id": "5a56"
+    },
+    {
+      "name": "Good Friday",
+      "date": "Mar 29",
+      "id": "9a9f"
+    }
+  ],
+  "payslip": {
+    "month": "December 2024",
+    "status": "Available",
+    "salary": "₹45,000"
+  },
+  "employees": [
+    {
+      "id": "1",
+      "name": "pranathi",
+      "position": "Junior Developer",
+      "department": "Engineering",
+      "email": "hasinimadhu64@gmail.com",
+      "phone": "8374152024",
+      "location": "San Francisco, CA",
+      "bio": "Full-stack developer with 5+ years of experience in React, Node.js, and cloud technologies.",
+      "skills": [
+        "SQL Server",
+        "Postgres SQL",
+        "Rust",
+        "Python",
+        "React",
+        "Angular"
+      ],
+      "joinDate": "January 15, 2019",
+      "profileImage": "https://randomuser.me/api/portraits/men/1.jpg"
+    }
+  ],
+  "attendance": [
+    {
+      "id": "1",
+      "employeeId": 1,
+      "date": "2023-06-01",
+      "checkIn": "09:05",
+      "checkOut": "17:30",
+      "location": "Office",
+      "status": "present",
+      "workingHours": 8.42
+    },
+    {
+      "id": "2",
+      "employeeId": 1,
+      "date": "2023-06-02",
+      "checkIn": "09:15",
+      "checkOut": "17:45",
+      "location": "Office",
+      "status": "present",
+      "workingHours": 8.5
+    },
+    {
+      "id": "3",
+      "employeeId": 1,
+      "date": "2023-06-03",
+      "checkIn": "09:00",
+      "checkOut": "12:30",
+      "location": "Home",
+      "status": "half-day",
+      "workingHours": 3.5
+    },
+    {
+      "id": "0",
+      "date": "2025-07-30",
+      "status": "present",
+      "checkIn": "17:40",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-07-30",
+      "status": "present",
+      "checkIn": "17:42",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-07-30",
+      "status": "present",
+      "checkIn": "17:43",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    }
+  ],
+  "dailyStatus": {
+    "employeeId": 1,
+    "lastCheckIn": "2023-06-03T09:00:00Z",
+    "lastLocation": "Home"
+  },
+  "settings": {
+    "workingHours": 8,
+    "locations": [
+      "Office",
+      "Home",
+      "Client Site"
+    ]
+  },
+  "goals": [
+    {
+      "id": "1",
+      "title": "Launch New Dashboard Feature",
+      "description": "Successfully launch the v2 dashboard for all enterprise clients.",
+      "progress": 75,
+      "status": "On Track",
+      "dueDate": "2023-12-31"
+    },
+    {
+      "id": "2",
+      "title": "Refactor Authentication Module",
+      "description": "Improve security and performance of the user authentication flow.",
+      "progress": 100,
+      "status": "Achieved",
+      "dueDate": "2023-06-30"
+    },
+    {
+      "id": "3",
+      "title": "Complete Advanced Security Training",
+      "description": "Complete the SANS SEC504 course and certification.",
+      "progress": 30,
+      "status": "At Risk",
+      "dueDate": "2023-09-30"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "1",
+      "title": "Q2 2023 Performance Review",
+      "status": "Completed",
+      "rating": "Exceeds Expectations",
+      "date": "2023-06-15",
+      "notes": "Your performance was rated as Exceeds Expectations for the second quarter of 2023."
+    },
+    {
+      "id": "2",
+      "title": "Q3 2023 Performance Review",
+      "status": "Upcoming",
+      "date": "2023-09-30",
+      "notes": "Your next performance review is scheduled for September 30, 2023."
+    }
+  ],
+  "feedback": [
+    {
+      "id": "1",
+      "from": "Sarah Johnson",
+      "role": "Team Lead",
+      "date": "2023-07-20",
+      "content": "You've done an excellent job leading the dashboard redesign project. Your attention to detail and communication with stakeholders has been outstanding.",
+      "type": "Positive",
+      "tags": [
+        "Leadership"
+      ]
+    },
+    {
+      "id": "2",
+      "from": "Michael Chen",
+      "role": "Peer",
+      "date": "2023-07-15",
+      "content": "The authentication refactor was a big success. One area to consider for improvement would be documenting the new patterns for the rest of the team.",
+      "type": "Constructive",
+      "tags": [
+        "Technical Skills"
+      ]
+    }
+  ],
+  "team": [
+    {
+      "id": "1",
+      "name": "Alex Morgan",
+      "role": "Software Engineer",
+      "progress": 65,
+      "goals": 3,
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Jamie Smith",
+      "role": "UX Designer",
+      "progress": 90,
+      "goals": 2,
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Taylor Williams",
+      "role": "QA Engineer",
+      "progress": 45,
+      "goals": 4,
+      "avatar": "https://randomuser.me/api/portraits/women/68.jpg"
+    }
+  ],
+  "payslips": [
+    {
+      "employeeName": "Hasini ",
+      "employeeId": "EMP12345",
+      "designation": "Front-End Developer",
+      "department": "Technology",
+      "panNumber": "AXXXX1234X",
+      "bankAccountNumber": "XXXX123456789",
+      "uan": "100234XXXXXXX",
+      "salary": 5600,
+      "year": "2025",
+      "month": "July",
+      "payPeriod": "July 2025",
+      "payDate": "31-Jul-2025",
+      "companyName": "Actlogica Solutions Pvt. Ltd.",
+      "companyAddress": "Hyderabad, Telangana, India",
+      "id": "ebc6"
+    },
+    {
+      "employeeName": "Hasini ",
+      "employeeId": "EMP12345",
+      "designation": "Front-End Developer",
+      "department": "Technology",
+      "panNumber": "AXXXX1234X",
+      "bankAccountNumber": "XXXX123456789",
+      "uan": "100234XXXXXXX",
+      "salary": 5700,
+      "year": "2025",
+      "month": "April",
+      "payPeriod": "April 2025",
+      "payDate": "30-Apr-2025",
+      "companyName": "Actlogica Solutions Pvt. Ltd.",
+      "companyAddress": "Hyderabad, Telangana, India",
+      "id": "e73a"
+    },
+    {
+      "employeeName": "Hasini R",
+      "employeeId": "EMP12345",
+      "designation": "Front-End Developer",
+      "department": "Technology",
+      "panNumber": "AXXXX1234X",
+      "bankAccountNumber": "XXXX123456789",
+      "uan": "100234XXXXXXX",
+      "salary": 5500,
+      "year": "2025",
+      "month": "June",
+      "payPeriod": "June 2025",
+      "payDate": "30-Jun-2025",
+      "companyName": "Actlogica Solutions Pvt. Ltd.",
+      "companyAddress": "Hyderabad, Telangana, India",
+      "id": "5ce9"
+    },
+    {
+      "employeeName": "Hasini R",
+      "employeeId": "EMP12345",
+      "designation": "Front-End Developer",
+      "department": "Technology",
+      "panNumber": "AXXXX1234X",
+      "bankAccountNumber": "XXXX123456789",
+      "uan": "100234XXXXXXX",
+      "salary": 5400,
+      "year": "2025",
+      "month": "May",
+      "payPeriod": "May 2025",
+      "payDate": "31-May-2025",
+      "companyName": "Actlogica Solutions Pvt. Ltd.",
+      "companyAddress": "Hyderabad, Telangana, India",
+      "id": "fda1"
+    },
+    {
+      "employeeName": "Hasini ",
+      "employeeId": "EMP12345",
+      "designation": "Front-End Developer",
+      "department": "Technology",
+      "panNumber": "AXXXX1234X",
+      "bankAccountNumber": "XXXX123456789",
+      "uan": "100234XXXXXXX",
+      "salary": 5600,
+      "year": "2025",
+      "month": "January",
+      "payPeriod": "January 2025",
+      "payDate": "31-Jan-2025",
+      "companyName": "Actlogica Solutions Pvt. Ltd.",
+      "companyAddress": "Hyderabad, Telangana, India",
+      "id": "4bfb"
+    },
+    {
+      "employeeName": "Hasini ",
+      "employeeId": "EMP12345",
+      "designation": "Front-End Developer",
+      "department": "Technology",
+      "panNumber": "AXXXX1234X",
+      "bankAccountNumber": "XXXX123456789",
+      "uan": "100234XXXXXXX",
+      "salary": 5600,
+      "year": "2025",
+      "month": "February",
+      "payPeriod": "February 2025",
+      "payDate": "28-Feb-2025",
+      "companyName": "Actlogica Solutions Pvt. Ltd.",
+      "companyAddress": "Hyderabad, Telangana, India",
+      "id": "3b99"
+    },
+    {
+      "employeeName": "Hasini ",
+      "employeeId": "EMP12345",
+      "designation": "Front-End Developer",
+      "department": "Technology",
+      "panNumber": "AXXXX1234X",
+      "bankAccountNumber": "XXXX123456789",
+      "uan": "100234XXXXXXX",
+      "salary": 5600,
+      "year": "2025",
+      "month": "March",
+      "payPeriod": "March 2025",
+      "payDate": "31-Mar-2025",
+      "companyName": "Actlogica Solutions Pvt. Ltd.",
+      "companyAddress": "Hyderabad, Telangana, India",
+      "id": "99df"
+    }
+  ],
+  "attend": [
+    {
+      "id": "6f87"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-21",
+      "status": "half-day",
+      "checkIn": "10:13",
+      "location": "Office",
+      "workingHours": "3h 32m",
+      "checkOut": "13:45"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-06",
+      "status": "present",
+      "checkIn": "09:15",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-07",
+      "status": "present",
+      "checkIn": "09:57",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-08",
+      "status": "present",
+      "checkIn": "08:52",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-11",
+      "status": "present",
+      "checkIn": "11:24",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-12",
+      "status": "present",
+      "checkIn": "10:12",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-13",
+      "status": "present",
+      "checkIn": "08:54",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-17",
+      "status": "present",
+      "checkIn": "18:10",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-18",
+      "status": "present",
+      "checkIn": "08:51",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-19",
+      "status": "present",
+      "checkIn": "09:45",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    },
+    {
+      "id": "0",
+      "date": "2025-08-21",
+      "status": "present",
+      "checkIn": "10:13",
+      "location": "Office",
+      "workingHours": "0h 0m"
+    }
+  ],
+  "travelRequests": [
+    {
+      "id": "e3fc",
+      "destination": "Dubai",
+      "dates": "2025-08-05 - 2025-08-14",
+      "cost": "₹20000",
+      "status": "Pending",
+      "purpose": "business",
+      "submitted": "2025-08-05T13:19:22.303Z"
+    },
+    {
+      "id": "8df4",
+      "destination": "kerala",
+      "dates": "2025-08-06 - 2025-08-09",
+      "cost": "₹5000",
+      "status": "Pending",
+      "purpose": "buisness",
+      "submitted": "2025-08-06T04:41:44.357Z"
+    }
+  ],
+  "loanApplications": [
+    {
+      "id": "d4df",
+      "date": "2025-08-06",
+      "amount": "₹300000",
+      "repayment": "120 Months",
+      "status": "Pending",
+      "reason": "uiui"
+    }
+  ],
+  "resignationSubmissions": [
+    {
+      "id": "5661",
+      "proposedLastWorkingDay": "2025-08-06",
+      "reason": "i am not interested in this role now.",
+      "submitted": "2025-08-06T04:13:22.951Z"
+    },
+    {
+      "id": "2fa0",
+      "proposedLastWorkingDay": "2025-08-06",
+      "reason": "ytry",
+      "submitted": "2025-08-06T05:06:38.397Z"
+    },
+    {
+      "id": "7c47",
+      "proposedLastWorkingDay": "2025-08-22",
+      "reason": "salary",
+      "submitted": "2025-08-22T03:42:03.275Z"
+    }
+  ],
+  "leaveRequests": [
+    {
+      "id": "073f",
+      "leaveType": "Sick Leave",
+      "startDate": "2025-08-13",
+      "endDate": "2025-08-16",
+      "daysRequested": 4,
+      "reason": "health issue",
+      "status": "Approved"
+    },
+    {
+      "id": "7951",
+      "leaveType": "Casual Leave",
+      "startDate": "2025-08-23",
+      "endDate": "2025-08-29",
+      "daysRequested": 7,
+      "reason": "marriage",
+      "status": "Rejected"
+    },
+    {
+      "id": "6f4b",
+      "leaveType": "Maternity Leave",
+      "startDate": "2025-08-14",
+      "endDate": "2025-08-31",
+      "daysRequested": 18,
+      "reason": "...",
+      "status": "Approved"
+    },
+    {
+      "id": "1389",
+      "leaveType": "Sick Leave",
+      "startDate": "2025-08-16",
+      "endDate": "2025-08-28",
+      "daysRequested": 13,
+      "reason": "./",
+      "status": "Rejected"
+    },
+    {
+      "id": "f9aa",
+      "leaveType": "Sick Leave",
+      "startDate": "2025-08-22",
+      "endDate": "2025-08-27",
+      "daysRequested": 6,
+      "reason": "..",
+      "status": "Approved"
+    },
+    {
+      "id": "c740",
+      "leaveType": "Casual Leave",
+      "startDate": "2025-08-23",
+      "endDate": "2025-08-26",
+      "daysRequested": 4,
+      "reason": "outing",
+      "status": "Rejected"
+    },
+    {
+      "id": "43a5",
+      "leaveType": "Casual Leave",
+      "startDate": "2025-08-22",
+      "endDate": "2025-08-28",
+      "daysRequested": 7,
+      "reason": "MARRIAGE",
+      "status": "Approved"
+    },
+    {
+      "id": "9efd",
+      "leaveType": "Sick Leave",
+      "startDate": "2025-08-17",
+      "endDate": "2025-08-18",
+      "daysRequested": 2,
+      "reason": "sick",
+      "status": "Approved"
+    },
+    {
+      "id": "6c33",
+      "leaveType": "Casual Leave",
+      "startDate": "2025-08-29",
+      "endDate": "2025-08-30",
+      "daysRequested": 2,
+      "reason": "marriage ",
+      "status": "Approved"
+    },
+    {
+      "id": "bf28",
+      "leaveType": "Casual Leave",
+      "startDate": "2025-08-21",
+      "endDate": "2025-08-29",
+      "daysRequested": 9,
+      "reason": "sick",
+      "status": "Approved"
+    },
+    {
+      "id": "0a8e",
+      "leaveType": "Casual Leave",
+      "startDate": "2025-08-21",
+      "endDate": "2025-08-29",
+      "daysRequested": 9,
+      "reason": "casual",
+      "status": "Pending"
+    }
+  ],
+  "profile": [
+    {
+      "id": "1",
+      "fullName": "Hasinii",
+      "email": "hasini64@gmail.com",
+      "phoneNumber": "9876543210",
+      "designation": "Frontend Developer",
+      "department": "Engineering",
+      "employeeId": "EMP002",
+      "hireDate": "2025-07-01",
+      "address": "Hyderabad",
+      "emergencyContact": "9123456789"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1755579184422",
+      "message": "Your leave request was Approved by HR",
+      "type": "Approval",
+      "isRead": true,
+      "createdAt": "2025-08-19T04:53:04.422Z"
+    },
+    {
+      "id": "1755579186673",
+      "message": "Your leave request was Approved by HR",
+      "type": "Approval",
+      "isRead": true,
+      "createdAt": "2025-08-19T04:53:06.673Z"
+    }
+  ]
+}

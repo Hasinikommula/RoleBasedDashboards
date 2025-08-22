@@ -1,0 +1,56 @@
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+   <div class="container">
+  <div class="header">
+    <div>
+      <h1>Career Opportunities</h1>
+      <p>Explore internal job openings and refer talented candidates</p>
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="tab" [class.active]="activeTab === 'openPositions'" (click)="setActiveTab('openPositions')">Open Positions</div>
+    <div class="tab" [class.active]="activeTab === 'myReferrals'" (click)="setActiveTab('myReferrals')">My Referrals ({{myReferrals.length}})</div>
+  </div>
+  <div class="content">
+    <div *ngIf="activeTab === 'openPositions'">
+      <input type="text" class="search-bar" placeholder="Search by job title, department, or location..." [(ngModel)]="searchQuery">
+      <div class="positions" *ngFor="let position of getFilteredPositions(); let i = index">
+        <div class="position-card">
+          <h3>{{position.title}}</h3>
+          <div class="details">
+            <span>{{position.dept}} &bull; {{position.location}}</span>
+            <span>{{position.exp}}</span>
+            <span>{{position.salary}}</span>
+            <p>We are looking for a talented {{position.title.toLowerCase().replace(' ', '-')}} to join our growing {{position.dept.toLowerCase()}} team...</p>
+          </div>
+          <div class="actions">
+            <span>Posted: {{position.posted}}</span>
+            <button class="view-btn" [ngClass]="{'disabled': position.applied}">View Details</button>
+            <button class="apply-btn" [class.applied]="position.applied" (click)="applyForPosition(i)" [disabled]="position.applied">{{position.applied ? 'Applied' : 'Apply Now'}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="activeTab === 'myReferrals'">
+      <h3>Employee Referral Program</h3>
+      <p>Earn rewards by referring talented candidates to join our team</p>
+      <div class="referrals" *ngFor="let referral of myReferrals">
+        <div class="referral-card">
+          <div class="referral-info">
+            <span>{{referral.name}}</span>
+            <span>{{referral.role}} &bull; {{referral.dept}}</span>
+            <span>Referred on {{referral.referred}}</span>
+          </div>
+          <div class="referral-status">
+            <span class="status">{{referral.status}}</span>
+            <span class="bonus">Bonus: {{referral.bonus}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>

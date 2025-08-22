@@ -1,0 +1,70 @@
+<form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <div class="profile-container">
+      <div class="header">
+        <h1>My Profile</h1>
+        <button *ngIf="!isEditMode" type="button" class="edit-button" (click)="toggleEditMode()">Edit Profile</button>
+        <div *ngIf="isEditMode" class="edit-actions">
+          <button type="submit" class="save-button" [disabled]="!profileForm.valid">Save</button>
+          <button type="button" class="cancel-button" (click)="cancelEdit()">Cancel</button>
+        </div>
+      </div>
+
+      <p class="subtitle">Manage your personal information</p>
+
+      <div class="profile-card">
+        <div class="left-section">
+          <div class="profile-pic">H</div>
+          <h2 *ngIf="!isEditMode">{{ profile.fullName }} {{ profile.designation }}</h2>
+          <div *ngIf="isEditMode" class="name-edit">
+            <input formControlName="fullName" placeholder="Full Name">
+            <input formControlName="designation" placeholder="Designation">
+          </div>
+        </div>
+
+        <div class="right-section">
+          <h3>Personal Information</h3>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Full Name</label>
+              <p *ngIf="!isEditMode">{{ profile.fullName }}</p>
+              <input *ngIf="isEditMode" formControlName="fullName" placeholder="Full Name">
+            </div>
+            <div class="info-item">
+              <label>Employee ID</label>
+              <p *ngIf="!isEditMode">{{ profile.employeeId }}</p>
+              <input *ngIf="isEditMode" formControlName="employeeId" placeholder="Employee ID">
+            </div>
+            <div class="info-item">
+              <label>Email</label>
+              <p *ngIf="!isEditMode">{{ profile.email }}</p>
+              <input *ngIf="isEditMode" formControlName="email" placeholder="Email">
+            </div>
+            <div class="info-item">
+              <label>Phone Number</label>
+              <p *ngIf="!isEditMode">{{ profile.phoneNumber }}</p>
+              <input *ngIf="isEditMode" formControlName="phoneNumber" placeholder="Phone Number">
+            </div>
+            <div class="info-item">
+              <label>Hire Date</label>
+              <p *ngIf="!isEditMode">{{ profile.hireDate }}</p>
+              <input *ngIf="isEditMode" formControlName="hireDate" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="info-item">
+              <label>Address</label>
+              <p *ngIf="!isEditMode">{{ profile.address }}</p>
+              <input *ngIf="isEditMode" formControlName="address" placeholder="Address">
+            </div>
+            <div class="info-item">
+              <label>Emergency Contact</label>
+              <p *ngIf="!isEditMode">{{ profile.emergencyContact }}</p>
+              <input *ngIf="isEditMode" formControlName="emergencyContact" placeholder="Emergency Contact">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

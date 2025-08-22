@@ -1,0 +1,394 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f8f9fc;
+}
+
+
+.sidebar {
+  width: 240px;
+  background-color: #1a73e8;
+  color: #fff;
+  padding: 20px 10px;
+  flex-shrink: 0;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 16px;
+}
+
+.sidebar-nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #135bd8;
+}
+
+.sidebar-nav .icon {
+  margin-right: 12px;
+}
+
+.main-content {
+  margin-left: 190px;
+  padding: 20px;
+  width: 100%;
+}
+
+
+.welcome-card {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(to right, #245ce1, #1e4bd1);
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  background-color: #3f75f2;
+  color: white;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.user-info h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.user-info p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+.datetime {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.datetime i {
+  margin-right: 5px;
+}
+
+.card-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.employee-id {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.notification-icon {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 10px;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.employee-id p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.employee-id h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 16px;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding-left: 20px;
+ 
+  border-radius: 6px;
+  transition: background 0.2s ease-in-out;
+}
+
+.sidebar-menu a:hover {
+  background-color: #135bd8;
+}
+
+.sidebar-menu i {
+  font-size: 18px;
+}
+
+.sidebar-menu span {
+  flex: 1;
+}
+.leave-card {
+  width: 225px;
+  padding: 15px;
+  height: 250px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  
+
+}
+
+.leave-header {
+  font-size: 16px;
+}
+
+.leave-type {
+  font-size: 13px;
+}
+
+.progress {
+  height: 6px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.progress-bar {
+  border-radius: 5px;
+}
+.leave-card:hover {
+  transform: translateY(-4px);
+}
+
+.attendance-card {
+  width: 225px;
+  height: 250px;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-left: 10px;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  
+}
+
+.attendance-header {
+  font-size: 16px;
+}
+
+.progress {
+  height: 6px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+}
+
+.progress-bar {
+  border-radius: 5px;
+}
+.card-align{
+    display: flex;
+    
+}
+.attendance-card:hover {
+  transform: translateY(-4px);
+}
+
+.holiday-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  width: 225px;
+  height: 250px;;
+  max-width: 350px;
+  font-family: 'Segoe UI', sans-serif;
+  margin-left: 10px;
+  border: 1px solid #eee;
+}
+
+.holiday-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.holiday-header .icon {
+  color: #f97316;
+  margin-right: 10px;
+  font-size: 12px;
+}
+
+.holiday-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.holiday-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.holiday-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  align-items: center;
+}
+
+.holiday-date {
+  background-color: #f3f4f6;
+  color: #111827;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.holiday-card:hover {
+  transform: translateY(-4px);
+}
+
+
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 10px;
+   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  width: 225px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Segoe UI', sans-serif;
+  transition: transform 0.2s ease;
+  margin-left: 10px;
+  border: 1px solid #eee;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-4px);
+}
+
+
+.dashboard-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #333;
+}
+
+
+.dashboard-card .value {
+  font-size: 30px;
+  font-weight: bold;
+  color: #007bff;
+  margin: 8px 0;
+}
+
+
+.dashboard-card .info {
+  font-size: 14px;
+  color: #777;
+}
+
+
+.dashboard-card button {
+  align-self: flex-start;
+  padding: 6px 14px;
+  font-size: 13px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dashboard-card button:hover {
+  background-color: #0056b3;
+}
+.logout-container {
+  margin-top: auto; 
+  text-align: center;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 10px;
+  background: #dfd8d8;
+  border: none;
+  color: rgb(89, 70, 213);
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #c82333;
+}

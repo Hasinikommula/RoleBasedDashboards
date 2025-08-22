@@ -1,0 +1,48 @@
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <div class="container">
+  <div class="header">
+    <div>
+      <h1>Employee Resignation</h1>
+      <p>Submit and track your resignation process</p>
+    </div>
+  </div>
+  <div class="content" *ngIf="showForm">
+    <div class="form-section">
+      <h2>Submit Resignation</h2>
+      <form [formGroup]="resignationForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="proposedLastWorkingDay">Proposed Last Working Day</label>
+          <input type="date" id="proposedLastWorkingDay" formControlName="proposedLastWorkingDay" [class.error]="resignationForm.get('proposedLastWorkingDay')?.invalid && resignationForm.get('proposedLastWorkingDay')?.touched" [min]="minDate">
+          <div *ngIf="resignationForm.get('proposedLastWorkingDay')?.invalid && resignationForm.get('proposedLastWorkingDay')?.touched" class="error-message">
+            Last working day is required and must be today or later.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="reason">Reason for Resignation</label>
+          <textarea id="reason" formControlName="reason" [class.error]="resignationForm.get('reason')?.invalid && resignationForm.get('reason')?.touched"></textarea>
+          <div *ngIf="resignationForm.get('reason')?.invalid && resignationForm.get('reason')?.touched" class="error-message">
+            Reason is required and must not exceed 200 characters.
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="submit-btn" [disabled]="resignationForm.invalid"><span class="user-icon">👤</span> Submit Resignation</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="submissions-section" *ngIf="!showForm">
+    <div class="submission-card">
+      <h2>Submit Resignation</h2>
+      <p>Your resignation has been submitted successfully.</p>
+      <p><strong>Proposed Last Working Day:</strong> {{resignationSubmissions[resignationSubmissions.length - 1]?.proposedLastWorkingDay}}</p>
+      <p><strong>Reason for Resignation:</strong> {{resignationSubmissions[resignationSubmissions.length - 1]?.reason}}</p>
+      <p><strong>Submitted On:</strong> {{resignationSubmissions[resignationSubmissions.length - 1]?.submitted | date:'dd-MM-yyyy'}}</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+

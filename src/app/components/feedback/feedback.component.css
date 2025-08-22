@@ -1,0 +1,48 @@
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.rounded-circle {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.badge {
+  font-weight: 500;
+  padding: 0.35em 0.65em;
+  font-size: 0.85em;
+  margin-right: 5px;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.text-dark {
+  color: #343a40 !important;
+}
+
+.card-text {
+  font-style: italic;
+  color: #495057;
+  margin: 15px 0;
+}
+
+.small {
+  font-size: 0.875em;
+  color: #6c757d;
+}

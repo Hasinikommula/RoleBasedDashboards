@@ -1,0 +1,51 @@
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.rounded-circle {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin: 0 auto 15px;
+  border: 3px solid #fff;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  background-color: #e9ecef;
+}
+
+.small {
+  font-size: 0.875em;
+  color: #6c757d;
+  margin-bottom: 15px;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}

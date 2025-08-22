@@ -1,0 +1,314 @@
+.performance-container {
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #2d3748;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1a202c;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #718096;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tab {
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  color: #718096;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.tab.active {
+  color: #2b6cb0;
+  border-bottom-color: #2b6cb0;
+  font-weight: 500;
+}
+
+.tab-content {
+  padding: 20px;
+  border-radius: 8px;
+  background: #f7fafc;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card .icon {
+  font-size: 22px;
+  display: block;
+  margin-bottom: 10px;
+  color: #2b6cb0;
+}
+
+.card h3 {
+  font-size: 12px;
+  font-weight: 400;
+  color: #718096;
+  margin-bottom: 5px;
+}
+
+.card .value {
+  font-size: 18px;
+  font-weight: 500;
+  color: #1a202c;
+  margin-bottom: 5px;
+}
+
+.card .subtext {
+  font-size: 10px;
+  font-weight: 400;
+  color: #a0aec0;
+}
+
+.chart-section h2,
+.skills-container h2,
+.goals-list h2,
+.review-item h2,
+.feedback-item h2 {
+  font-size: 17px;
+  font-weight: 500;
+  color: #1a202c;
+  margin-bottom: 15px;
+}
+
+#performanceTrendChart,
+#skillsPieChart {
+  width: 100%;
+  max-width: 700px;
+  height: 300px;
+  margin: 0 auto;
+  display: block;
+}
+
+.goals-list {
+  margin-top: 15px;
+}
+
+.goal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s ease;
+}
+
+.goal-item:hover {
+  background-color: #edf2f7;
+}
+
+.goal-details h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a202c;
+  margin: 0 0 4px;
+}
+
+.goal-details p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #718096;
+  margin: 2px 0;
+}
+
+.goal-progress {
+  text-align: right;
+  min-width: 120px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #9971ee;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.progress-bar div {
+  height: 100%;
+  background: #2b6cb0;
+  border-radius: 4px;
+}
+
+.goal-progress span {
+  font-size: 10px;
+  font-weight: 400;
+  color: #718096;
+}
+
+.status {
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.status.completed {
+  background: #48bb78;
+  color: #ffffff;
+}
+
+.skills-container {
+  display: flex;
+  gap: 20px;
+}
+
+.skills-overview,
+.skills-progress {
+  flex: 1;
+}
+
+.skill-item {
+  margin-bottom: 10px;
+}
+
+.skill-item p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #718096;
+  margin: 4px 0;
+}
+
+.review-item,
+.feedback-item {
+  padding: 12px;
+  border-bottom: 1px solid #edf2f7;
+  transition: background-color 0.2s ease;
+}
+
+.review-item:hover,
+.feedback-item:hover {
+  background-color: #edf2f7;
+}
+
+.review-details h3,
+.feedback-details h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a202c;
+  margin: 0 0 4px;
+}
+
+.review-details p,
+.feedback-details p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #718096;
+  margin: 2px 0;
+}
+
+.review-ratings p {
+  font-size: 12px;
+  font-weight: 400;
+  color: #1a202c;
+  margin: 2px 0;
+}
+
+.status.positive {
+  background: #48bb78;
+  color: #ffffff;
+}
+
+.status.constructive {
+  background: #ecc94b;
+  color: #ffffff;
+}
+
+.add-goal-btn {
+  background: #2b6cb0;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.add-goal-btn:hover {
+  background: #2c5282;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+  .skills-container {
+    flex-direction: column;
+  }
+  #performanceTrendChart,
+  #skillsPieChart {
+    max-width: 100%;
+    height: 200px;
+  }
+}
+
+.layout-container {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: white;
+  min-height: 100vh;
+  margin-left: 180px; 
+}
+.fixed-chart {
+  width: 500px;
+  height: 250px;
+}
+
+.fixed-chart canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+h2{
+  font-size: 17px;
+}
+.allign{
+  display: flex;
+  justify-content: space-between;
+}

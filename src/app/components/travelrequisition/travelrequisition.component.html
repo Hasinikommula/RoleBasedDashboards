@@ -1,0 +1,81 @@
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+   <div class="container">
+  <div class="header">
+    <div>
+      <h1>Travel Requisition</h1>
+      <p>Submit and track your business travel requests</p>
+    </div>
+    <button class="new-request-btn" (click)="toggleForm()">+ New Travel Request</button>
+  </div>
+  <div class="content" *ngIf="showForm">
+    <div class="form-section">
+      <h2>New Travel Request</h2>
+      <form [formGroup]="travelForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <input type="text" id="destination" formControlName="destination" [class.error]="travelForm.get('destination')?.invalid && travelForm.get('destination')?.touched">
+          <div *ngIf="travelForm.get('destination')?.invalid && travelForm.get('destination')?.touched" class="error-message">
+            Destination is required and must be at least 2 characters.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="estimatedCost">Estimated Cost (₹)</label>
+          <input type="number" id="estimatedCost" formControlName="estimatedCost" [class.error]="travelForm.get('estimatedCost')?.invalid && travelForm.get('estimatedCost')?.touched">
+          <div *ngIf="travelForm.get('estimatedCost')?.invalid && travelForm.get('estimatedCost')?.touched" class="error-message">
+            Cost is required and must be a positive number.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="startDate">Start Date</label>
+          <input type="date" id="startDate" formControlName="startDate" [class.error]="travelForm.get('startDate')?.invalid && travelForm.get('startDate')?.touched" [min]="minDate">
+          <div *ngIf="travelForm.get('startDate')?.invalid && travelForm.get('startDate')?.touched" class="error-message">
+            Start date is required and must be today or later.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="endDate">End Date</label>
+          <input type="date" id="endDate" formControlName="endDate" [class.error]="travelForm.get('endDate')?.invalid && travelForm.get('endDate')?.touched" [min]="minDate">
+          <div *ngIf="travelForm.get('endDate')?.invalid && travelForm.get('endDate')?.touched" class="error-message">
+            End date is required and must be today or later.
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="purpose">Purpose of Travel</label>
+          <textarea id="purpose" formControlName="purpose" [class.error]="travelForm.get('purpose')?.invalid && travelForm.get('purpose')?.touched"></textarea>
+          <div *ngIf="travelForm.get('purpose')?.invalid && travelForm.get('purpose')?.touched" class="error-message">
+            Purpose is required and must not exceed 200 characters.
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="cancel-btn" (click)="toggleForm()">Cancel</button>
+          <button type="submit" class="submit-btn" [disabled]="travelForm.invalid">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="requests-section">
+    <h2><span class="plane-icon">✈</span> My Travel Requests</h2>
+    <div class="requests-table">
+      <div class="table-header">
+        <span>Destination</span>
+        <span>Dates</span>
+        <span>Cost (₹)</span>
+        <span>Status</span>
+        <span>Purpose</span>
+      </div>
+      <div class="table-row" *ngFor="let request of travelRequests">
+        <span>{{request.destination}}</span>
+        <span>{{request.dates}}</span>
+        <span>{{request.cost}}</span>
+        <span>{{request.status}}</span>
+        <span>{{request.purpose}}</span>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="sidebar">
+    <div class="logo">{{ userRole === 'Employee' ? 'Employee Dashboard' : 'HR Dashboard' }}</div>
+    <nav class="sidebar-nav">
+      <ul class="sidebar-menu">
+        <li *ngFor="let item of menuItems">
+          <a [routerLink]="item.link">
+            <i class="bi" [ngClass]="item.icon"></i>
+            <span>{{ item.label }}</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+     <div class="logout-container">
+    <button class="logout-btn" (click)="logout()">
+      <i class="bi bi-box-arrow-right"></i> Logout
+    </button>
+  </div>
+  </div>
+</div>
+
+

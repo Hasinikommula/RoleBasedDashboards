@@ -1,0 +1,39 @@
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+
+    <div class="container">
+        <h2>HR Leave Approval</h2>
+        <div class="table-wrapper">
+            <table class="leave-table">
+                <thead>
+                    <tr>
+                        <th>Employee Name</th>
+                        <th>Destinaton</th>
+                        <th>Dates</th>
+                        <th>Purpose</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let request of travelRequests">
+                        <td>{{ request.employeeName }}</td>
+                        <td>{{ request.destination }}</td>
+                        <td>{{ request.dates }}</td>
+                        <td>{{ request.purpose }}</td>
+                        <td>{{ request.status }}</td>
+                        <td>
+                            <button class="action-btn approve-btn" (click)="updateStatus(request.id, 'Approved')" [disabled]="request.status !== 'Pending'">Approve</button>
+                            <button class="action-btn reject-btn" (click)="updateStatus(request.id, 'Rejected')" [disabled]="request.status !== 'Pending'">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</div>
+  
+

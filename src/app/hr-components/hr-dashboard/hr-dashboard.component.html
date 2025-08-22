@@ -1,0 +1,63 @@
+<div class="container">
+
+  <div class="sidebar">
+    <div class="logo">HRDashboard</div>
+    <nav class="sidebar-nav">
+      <app-sidebar></app-sidebar>
+    </nav>
+  </div>
+
+
+  <div class="main-content">
+    <div class="dashboard-container">
+      
+  
+      <div class="dashboard-cards">
+        <div class="dashboard-card">
+          <div class="card-title">Pending Leave Requests</div>
+          <div class="card-value">{{ pendingApprovals.length }}</div>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-title">Pending Travel Requests</div>
+          <div class="card-value">{{ pendingApprovals.length }}</div>
+        </div>
+        <div class="dashboard-card">
+          <div class="card-title">Rejected Leaves</div>
+          <div class="card-value">{{ rejectedLeavesCount }}</div>
+        </div>
+      </div>
+
+    
+      <div class="approvals-section">
+        <h2>Pending Approvals</h2>
+
+        <div *ngIf="pendingApprovals.length === 0" class="no-data">
+          ✅ No pending approvals
+        </div>
+
+        <div *ngFor="let approval of pendingApprovals" class="approval-item">
+          <div class="approval-info">
+            <div class="approval-title">{{ approval.employeeName || 'Employee' }}</div>
+            <div class="approval-type">
+              {{ approval.leaveType }} - {{ approval.daysRequested }} days
+            </div>
+            <div class="approval-dates">
+              From: {{ approval.startDate | date:'yyyy-MM-dd' }}  
+              To: {{ approval.endDate | date:'yyyy-MM-dd' }}
+            </div>
+            <div class="approval-reason">
+              Reason: {{ approval.reason }}
+            </div>
+          </div>
+          <div class="approval-actions">
+            <button class="approve" (click)="approveRequest(approval)">✔</button>
+            <button class="reject" (click)="rejectRequest(approval)">✖</button>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+

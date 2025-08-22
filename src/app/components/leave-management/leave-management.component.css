@@ -1,0 +1,138 @@
+.leave-container {
+  padding: 2rem;
+  background: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subtitle {
+  color: #6b7280;
+  font-size: 0.95rem;
+  margin-top: 0.25rem;
+}
+
+.btn-apply {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.btn-submit {
+  background: #111827;
+  color: white;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  border: 1px solid #d1d5db;
+  background: white;
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.requests-section {
+  margin-top: 2rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+}
+
+th, td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+}
+
+th {
+  background: #f3f4f6;
+  font-weight: 600;
+}
+.layout-container {
+  display: flex;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: white;
+  min-height: 100vh;
+  margin-left: 180px; 
+}
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.tabs button {
+  padding: 8px 16px;
+  border: none;
+  background: #f1f1f1;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.tabs button.active {
+  background: #007bff;
+  color: white;
+}
+
+span.approved {
+  color: green;
+  font-weight: bold;
+}
+span.rejected {
+  color: red;
+  font-weight: bold;
+}
+span.pending {
+  color: orange;
+  font-weight: bold;
+}

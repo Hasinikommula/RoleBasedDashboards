@@ -1,0 +1,28 @@
+<div class="section-content">
+  <h2>My Team</h2>
+  <p class="text-muted mb-4">Your direct reports and their current goals.</p>
+  
+  <div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!isLoading">
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let member of teamMembers">
+      <div class="card">
+        <div class="card-body text-center">
+          <img [src]="member.avatar || 'https://via.placeholder.com/100'" class="rounded-circle mb-3" width="100" height="100" alt="Team member">
+          <h5 class="card-title">{{ member.name }}</h5>
+          <p class="card-text text-muted">{{ member.role }}</p>
+          <div class="progress mb-3">
+            <div class="progress-bar" role="progressbar" [style.width]="member.progress + '%'" 
+                 [attr.aria-valuenow]="member.progress" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <p class="small">{{ member.goals }} {{ member.goals === 1 ? 'goal' : 'goals' }} in progress</p>
+          <button class="btn btn-sm btn-outline-primary">View Profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

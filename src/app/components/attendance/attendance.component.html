@@ -1,0 +1,80 @@
+<div class="att-attendance-container">
+  <div class="att-attendance-header">
+    <h1>Attendance</h1>
+   
+  </div>
+
+  <div class="att-main-content">
+    <!-- Calendar Section -->
+    <div class="att-calendar-section">
+      <div class="att-calendar-container">
+        <div class="att-calendar-header">
+          <div *ngFor="let day of ['S', 'M', 'T', 'W', 'T', 'F', 'S']" class="att-day-header">
+            {{ day }}
+          </div>
+        </div>
+        <div class="att-calendar-grid">
+          <div *ngFor="let day of calendarDays" 
+               class="att-calendar-day"
+               [class.att-selected]="isSameDay(day.date, selectedDate)"
+               (click)="onDateSelect(day.date)">
+            <div class="att-day-number">{{ day.day }}</div>
+            <div class="att-day-status" [class]="'att-' + getStatusClass(day.status || '')">
+              {{ day.status ? day.status.charAt(0).toUpperCase() : '' }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Card Section -->
+    <div class="att-status-section">
+      <div class="att-status-card">
+        <div class="att-details-header">
+          <h2>{{ selectedDate | date:'MMM d, y' }}</h2>
+        </div>
+        
+        <div class="att-details-card">
+          <div class="att-detail-row">
+            <span class="att-label">Status</span>
+            <span class="att-value att-{{ getStatusClass(currentRecord?.status || '') }}">
+              {{ (currentRecord?.status || '') | titlecase }}
+            </span>
+          </div>
+          <div class="att-detail-row">
+            <span class="att-label">Check In</span>
+            <span class="att-value">{{ currentRecord?.checkIn || '--:--' }}</span>
+          </div>
+          <div class="att-detail-row">
+            <span class="att-label">Check Out</span>
+            <span class="att-value">{{ currentRecord?.checkOut || '--:--' }}</span>
+          </div>
+          <div class="att-detail-row">
+            <span class="att-label">Location</span>
+            <span class="att-value">{{ currentRecord?.location || 'Office' }}</span>
+          </div>
+          <div class="att-detail-row">
+            <span class="att-label">Working Hours</span>
+            <span class="att-value">{{ calculateWorkingHours() }}</span>
+          </div>
+        </div>
+
+        <div class="att-action-buttons">
+         <button class="att-check-in-btn" 
+        (click)="checkIn()" 
+        [disabled]="!isToday(selectedDate) || currentRecord?.checkIn">
+  Check In
+</button>
+
+<button class="att-check-out-btn" 
+        (click)="checkOut()" 
+        [disabled]="!isToday(selectedDate) || !currentRecord?.checkIn || currentRecord?.checkOut">
+  Check Out
+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</div>

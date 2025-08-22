@@ -1,0 +1,57 @@
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content p-4">
+  <div class="payslip-container">
+  <h2>Payslips</h2>
+  <p>View and download your monthly payslips</p>
+  <div class="payslip-selection">
+    <h3>Select Payslip</h3>
+    <select (change)="onYearChange($event)" [(ngModel)]="selectedYear">
+      <option value="" disabled selected>Year</option>
+      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+    </select>
+    <select (change)="onMonthChange($event)" [(ngModel)]="selectedMonth">
+      <option value="" disabled selected>Month</option>
+      <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+    </select>
+    <div class="payslip-display" *ngIf="selectedPayslip">
+      <div class="payslip-card">
+        <div class="payslip-header">
+          <h3>{{ payslipData.companyName }}</h3>
+          <p>{{ payslipData.companyAddress }}</p>
+        </div>
+        <div class="payslip-body">
+          <div class="payslip-section">
+            <p><strong>Employee Name:</strong> {{ payslipData.employeeName }}</p>
+            <p><strong>Employee ID:</strong> {{ payslipData.employeeId }}</p>
+            <p><strong>Designation:</strong> {{ payslipData.designation }}</p>
+            <p><strong>Department:</strong> {{ payslipData.department }}</p>
+          </div>
+          <div class="payslip-section">
+            <p><strong>PAN Number:</strong> {{ payslipData.panNumber }}</p>
+            <p><strong>Bank A/C Number:</strong> {{ payslipData.bankAccountNumber }}</p>
+            <p><strong>UAN (EPF ID):</strong> {{ payslipData.uan }}</p>
+          </div>
+          <div class="payslip-section">
+            <p><strong>Pay Period:</strong> {{ payslipData.payPeriod }}</p>
+            <p><strong>Pay Date:</strong> {{ payslipData.payDate }}</p>
+            <p><strong>Salary:</strong> ${{ payslipData.salary }}</p>
+          </div>
+        </div>
+        <div class="payslip-footer">
+          <button (click)="downloadPayslip()">Download</button>
+        </div>
+      </div>
+    </div>
+    <div class="payslip-placeholder" *ngIf="!selectedPayslip">
+      <span class="document-icon"></span>
+      <p>Please select a year and month to view a payslip.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+</div>
+

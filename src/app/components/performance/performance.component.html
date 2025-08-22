@@ -1,0 +1,238 @@
+<div class="layout-container">
+  <app-sidebar></app-sidebar>
+
+  <div class="main-content">
+    <div class="performance-container">
+      <h1>My Performance Dashboard</h1>
+      <p class="subtitle">Track your progress and achievements with real-time insights</p>
+
+      <div class="tabs">
+        <button class="tab" [class.active]="activeTab === 'overview'" (click)="setActiveTab('overview')">Overview</button>
+        <button class="tab" [class.active]="activeTab === 'goals'" (click)="setActiveTab('goals')">Goals</button>
+        <button class="tab" [class.active]="activeTab === 'skills-overview'" (click)="setActiveTab('skills-overview')">Skills Overview</button>
+        <button class="tab" [class.active]="activeTab === 'reviews'" (click)="setActiveTab('reviews')">Reviews</button>
+        <button class="tab" [class.active]="activeTab === 'feedbacks'" (click)="setActiveTab('feedbacks')">Feedbacks</button>
+      </div>
+
+      
+      <div class="tab-content" *ngIf="activeTab === 'overview'">
+        <div class="card-container">
+          <div class="card">
+            <span class="icon">★</span>
+            <h3>Current Rating</h3>
+            <p class="value">4.8</p>
+            <p class="subtext">+0.2 from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">⭕</span>
+            <h3>Goals Completed</h3>
+            <p class="value">8/10</p>
+            <p class="subtext">This quarter</p>
+          </div>
+          <div class="card">
+            <span class="icon">⬆</span>
+            <h3>Productivity</h3>
+            <p class="value">93%</p>
+            <p class="subtext">+3% from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">🏆</span>
+            <h3>Rank</h3>
+            <p class="value">#2</p>
+            <p class="subtext">In your team</p>
+          </div>
+        </div>
+        <div class="chart-section fixed-chart">
+          <h2>Performance Trend (Last 6 Months)</h2>
+          <canvas #performanceTrendChartCanvas id="performanceTrendChart"></canvas>
+        </div>
+      </div>
+
+  
+      <div class="tab-content" *ngIf="activeTab === 'goals'">
+        <div class="card-container">
+          <div class="card">
+            <span class="icon">★</span>
+            <h3>Current Rating</h3>
+            <p class="value">4.8</p>
+            <p class="subtext">+0.2 from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">⭕</span>
+            <h3>Goals Completed</h3>
+            <p class="value">8/10</p>
+            <p class="subtext">This quarter</p>
+          </div>
+          <div class="card">
+            <span class="icon">⬆</span>
+            <h3>Productivity</h3>
+            <p class="value">93%</p>
+            <p class="subtext">+3% from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">🏆</span>
+            <h3>Rank</h3>
+            <p class="value">#2</p>
+            <p class="subtext">In your team</p>
+          </div>
+        </div>
+        <div class="allign">
+        <h2>My Goals</h2>
+        <button class="add-goal-btn">Add Goal</button>
+        </div>
+        <div class="goals-list">
+          <div class="goal-item" *ngFor="let goal of goals">
+            <div class="goal-details">
+              <h3>{{ goal.title }}</h3>
+              <p>Due: {{ goal.dueDate }}</p>
+              <p>{{ goal.category }}</p>
+            </div>
+            <div class="goal-progress">
+              <div class="progress-bar" [style.width]="goal.progress + '%'"></div>
+              <span>{{ goal.progress }}%</span>
+              <span class="status" [class.completed]="goal.status === 'Completed'">{{ goal.status }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" *ngIf="activeTab === 'skills-overview'">
+        <div class="card-container">
+          <div class="card">
+            <span class="icon">★</span>
+            <h3>Current Rating</h3>
+            <p class="value">4.8</p>
+            <p class="subtext">+0.2 from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">⭕</span>
+            <h3>Goals Completed</h3>
+            <p class="value">8/10</p>
+            <p class="subtext">This quarter</p>
+          </div>
+          <div class="card">
+            <span class="icon">⬆</span>
+            <h3>Productivity</h3>
+            <p class="value">93%</p>
+            <p class="subtext">+3% from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">🏆</span>
+            <h3>Rank</h3>
+            <p class="value">#2</p>
+            <p class="subtext">In your team</p>
+          </div>
+        </div>
+        
+        <div class="skills-container">
+          <div class="skills-overview fixed-chart">
+            <h2>Skills Overview</h2>
+            <canvas #skillsPieChartCanvas id="skillsPieChart"></canvas>
+          </div>
+          <div class="skills-progress">
+            <h2>Skills Progress</h2>
+            <div class="skill-item" *ngFor="let skill of skills">
+              <p>{{ skill.name }}</p>
+              <div class="progress-bar" [style.width]="skill.progress + '%'"></div>
+              <span>{{ skill.progress }}% 
+                <span *ngIf="skill.progress >= skill.target">✓ Achieved</span>
+                <span *ngIf="skill.progress < skill.target">{{ 100 - skill.progress }}% to go</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="tab-content" *ngIf="activeTab === 'reviews'">
+        <div class="card-container">
+          <div class="card">
+            <span class="icon">★</span>
+            <h3>Current Rating</h3>
+            <p class="value">4.8</p>
+            <p class="subtext">+0.2 from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">⭕</span>
+            <h3>Goals Completed</h3>
+            <p class="value">8/10</p>
+            <p class="subtext">This quarter</p>
+          </div>
+          <div class="card">
+            <span class="icon">⬆</span>
+            <h3>Productivity</h3>
+            <p class="value">93%</p>
+            <p class="subtext">+3% from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">🏆</span>
+            <h3>Rank</h3>
+            <p class="value">#2</p>
+            <p class="subtext">In your team</p>
+          </div>
+        </div>
+        
+       
+        <h2>Performance Review History</h2>
+        <div class="review-item" *ngFor="let review of reviews">
+          <div class="review-details">
+            <h3>{{ review.title }}</h3>
+            <p>Completed on {{ review.date }}</p>
+          </div>
+          <div class="review-ratings">
+            <p>Self: {{ review.selfRating }}</p>
+            <p>Manager: {{ review.managerRating }}</p>
+            <p>Final: {{ review.finalRating }}</p>
+          </div>
+          <span class="status completed">{{ review.status }}</span>
+        </div>
+      </div>
+
+      <div class="tab-content" *ngIf="activeTab === 'feedbacks'">
+        <div class="card-container">
+          <div class="card">
+            <span class="icon">★</span>
+            <h3>Current Rating</h3>
+            <p class="value">4.8</p>
+            <p class="subtext">+0.2 from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">⭕</span>
+            <h3>Goals Completed</h3>
+            <p class="value">8/10</p>
+            <p class="subtext">This quarter</p>
+          </div>
+          <div class="card">
+            <span class="icon">⬆</span>
+            <h3>Productivity</h3>
+            <p class="value">93%</p>
+            <p class="subtext">+3% from last month</p>
+          </div>
+          <div class="card">
+            <span class="icon">🏆</span>
+            <h3>Rank</h3>
+            <p class="value">#2</p>
+            <p class="subtext">In your team</p>
+          </div>
+        </div>
+        
+        
+        <h2>Recent Feedback</h2>
+        <div class="feedback-item" *ngFor="let feedback of feedbacks">
+          <div class="feedback-details">
+            <h3>{{ feedback.from }} ({{ feedback.role }})</h3>
+            <p>{{ feedback.date }}</p>
+            <p>{{ feedback.comment }}</p>
+          </div>
+          <span class="status" 
+                [class.positive]="feedback.type === 'Positive'" 
+                [class.constructive]="feedback.type === 'Constructive'">
+            {{ feedback.type }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
